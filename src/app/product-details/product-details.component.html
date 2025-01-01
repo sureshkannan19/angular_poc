@@ -1,0 +1,29 @@
+<div class="product">
+  <div class="product-details">
+    <img [src]="getImageUrl(product)" [alt]="product?.name" />
+    <div class="product-info">
+      <div class="name">{{ product?.name }}</div>
+      <div class="description">{{ product?.description }}</div>
+      <div class="category">Part Type: {{ product?.category }}</div>
+    </div>
+  </div>
+  <div class="price">
+    <!-- Dynamically switch between classess 
+       1.  [class.strikethrough]/[style.color] 
+       2. ngClass/ngStyle -- advantages of using ngClass/ngStyle is, multiple values can be implemented 
+       and if any existing value is present for that attribute (style, class), that also be applied in addition to ngClass/ngStyle values
+       -->
+    <!-- <div [class.strikethrough]="product.discount > 0"> -->
+    <div
+      class="bold"
+      [ngStyle]="getDiscountedStyle(product)"
+      [ngClass]="getDiscountedClasses(product)"
+    >
+      {{ product.price | currency : "GBP" }}
+    </div>
+    <div *ngIf="product.discount > 0" class="discount">
+      {{ product.price * (1 - product.discount) | currency : "GBP" }}
+    </div>
+    <button class="cta" (click)="buyProduct(product)">Buy</button>
+  </div>
+</div>
