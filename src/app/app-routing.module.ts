@@ -12,6 +12,7 @@ const routes: Route[] = [
     title: "Catalog - Joe's Robot Shop",
   },
   { path: 'cart', component: CartComponent, title: "Cart - Joe's Robot Shop" },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 @NgModule({
   declarations: [],
