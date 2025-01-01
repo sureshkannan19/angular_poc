@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IProduct } from './product.model';
-import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from './product.service';
 
@@ -9,7 +8,7 @@ import { ProductService } from './product.service';
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
 })
-export class CatalogComponent {
+export class CatalogComponent implements OnInit {
   products!: IProduct[];
   filter: string = '';
   // private cartService: CartService = inject(CartService);
