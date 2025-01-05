@@ -14,11 +14,7 @@
        and if any existing value is present for that attribute (style, class), that also be applied in addition to ngClass/ngStyle values
        -->
     <!-- <div [class.strikethrough]="product.discount > 0"> -->
-    <div
-      class="bold"
-      [ngStyle]="getDiscountedStyle(product)"
-      [ngClass]="getDiscountedClasses(product)"
-    >
+    <div class="bold" [ngStyle]="getDiscountedStyle(product)" [ngClass]="getDiscountedClasses(product)">
       {{ product.price | currency : "GBP" }}
     </div>
     <div *ngIf="product.discount > 0" class="discount">

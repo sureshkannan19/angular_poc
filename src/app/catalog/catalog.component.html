@@ -1,48 +1,16 @@
 <div class="container">
   <div class="filters">
-    <a
-      routerLinkActive="active"
-      class="button"
-      routerLink="/catalog"
-      [queryParams]="{ filter: 'Heads' }"
-      >Heads</a
-    >
-    <a
-      routerLinkActive="active"
-      class="button"
-      routerLink="/catalog"
-      [queryParams]="{ filter: 'Arms' }"
-      >Arms</a
-    >
-    <a
-      routerLinkActive="active"
-      class="button"
-      routerLink="/catalog"
-      [queryParams]="{ filter: 'Torsos' }"
-      >Torsos</a
-    >
-    <a
-      routerLinkActive="active"
-      class="button"
-      routerLink="/catalog"
-      [queryParams]="{ filter: 'Bases' }"
-      >Bases</a
-    >
-    <a
-      routerLinkActive="active"
-      class="button"
-      [routerLink]="['/catalog']"
-      [routerLinkActiveOptions]="{ exact: true }"
-      >All</a
-    >
+    <a routerLinkActive="active" class="button" routerLink="/catalog" [queryParams]="{ filter: 'Heads' }">Heads</a>
+    <a routerLinkActive="active" class="button" routerLink="/catalog" [queryParams]="{ filter: 'Arms' }">Arms</a>
+    <a routerLinkActive="active" class="button" routerLink="/catalog" [queryParams]="{ filter: 'Torsos' }">Torsos</a>
+    <a routerLinkActive="active" class="button" routerLink="/catalog" [queryParams]="{ filter: 'Bases' }">Bases</a>
+    <a routerLinkActive="active" class="button" [routerLink]="['/catalog']"
+      [routerLinkActiveOptions]="{ exact: true }">All</a>
   </div>
 
   <ul class="products">
     <li class="product-item" *ngFor="let product of getFilteredProducts()">
-      <app-product-details
-        [product]="product"
-        (buy)="addToCart($event)"
-      ></app-product-details>
+      <app-product-details [product]="product" (buy)="addToCart($event)"></app-product-details>
     </li>
   </ul>
 </div>
