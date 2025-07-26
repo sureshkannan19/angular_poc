@@ -4,11 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, title: "Home -Joe's Robot Shop" },
   { path: 'catalog', component: CatalogComponent, title: "Catalog -Joe's Robot Shop" },
   { path: 'cart', component: CartComponent, title: "Cart -Joe's Robot Shop" },
+  { path: 'search', component: SearchComponent, title: "Search in -Joe's Robot Shop" },
   { path: 'signIn', component: SignInComponent, title: "Sign in -Joe's Robot Shop" },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'h', redirectTo: '/home', pathMatch: 'prefix' }

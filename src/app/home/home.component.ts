@@ -10,7 +10,7 @@ import { IUser } from '../user/user.model';
 })
 export class HomeComponent implements OnInit {
 
-  user: IUser | null = null;
+  // user: IUser | null = null;
 
   constructor(
     private userService: UserService,
@@ -19,13 +19,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // Initialize any data or services needed for the home component
     console.log('Home component initialized');
-    this.userService.getUser().subscribe({
-      next: (user) => {
-        this.user = user;
-        this.navigateToSignInOrProceed(user);
-      },
-      error: (e) => { this.user = null; this.navigateToSignInOrProceed(null); }
-    })
+    // this.userService.getUser().subscribe({
+    //   next: (user) => {
+    //     this.user = user;
+    //     this.navigateToSignInOrProceed(user);
+    //   },
+    //   error: (e) => { this.user = null; this.navigateToSignInOrProceed(null); }
+    // })
   }
 
   navigateToSignInOrProceed(user: IUser | null) {

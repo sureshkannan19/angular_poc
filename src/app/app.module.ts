@@ -12,6 +12,8 @@ import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { TemplateFormControlsComponent } from './template-form-controls/template-form-controls.component';
+import { SearchComponent } from './search/search.component';
+import { CART_SERVICE_TOKEN, CartService } from './cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { TemplateFormControlsComponent } from './template-form-controls/template
     SiteHeaderComponent,
     ProductDetailsComponent,
     SignInComponent,
-    TemplateFormControlsComponent
+    TemplateFormControlsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,10 @@ import { TemplateFormControlsComponent } from './template-form-controls/template
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: CART_SERVICE_TOKEN,
+    useClass: CartService
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

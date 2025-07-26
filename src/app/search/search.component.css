@@ -1,0 +1,10 @@
+.searchText {
+    padding-right: 750px;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* position: fixed; */
+}

@@ -1,0 +1,6 @@
+<div class="container">
+    <input class="searchText" type="text" [(ngModel)]="searchText" placeholder="Search product by name" />
+</div>
+<div *ngFor="let product of getFilteredProducts()">
+    <app-product-details [product]="product" (buy)="addToCart(product)"></app-product-details>
+</div>

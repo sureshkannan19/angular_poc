@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { IProduct } from '../catalog/IProduct.model';
-import { CartService } from './cart.service';
+import { CART_SERVICE_TOKEN, CartService } from './cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,20 +9,18 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
   private cart: IProduct[] = [];
-  constructor(private cartService: CartService) { }
+  constructor(@Inject(CART_SERVICE_TOKEN) private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartService.getCart().subscribe({
-      next: (cart) => (this.cart = cart),
-    });
+    this.cart = this.cartService.getCart()();
   }
 
   get cartItems() {
-    return this.cart;
+    return this.cartService.getCart()();
   }
 
   get cartTotal() {
-    return this.cart.reduce((prev, next) => {
+    return this.cartService.getCart()().reduce((prev, next) => {
       let discount = next.discount && next.discount > 0 ? 1 - next.discount : 1;
       return prev + next.price * discount;
     }, 0);

@@ -1,14 +1,14 @@
 <div class="container">
-    <div class="filters">
+    <!-- <div class="filters">
         <a routerLink="/catalog" [queryParams]="{filter: 'Heads'}" routerLinkActive="active" class="button">Heads</a>
         <a routerLink="/catalog" [queryParams]="{filter: 'Arms'}" routerLinkActive="active" class="button">Arms</a>
         <a routerLink="/catalog" [queryParams]="{filter: 'Torsos'}" routerLinkActive="active" class="button">Torsos</a>
         <a routerLink="/catalog" [queryParams]="{filter: 'Bases'}" routerLinkActive="active" class="button">Bases</a>
         <a routerLink="/catalog" routerLinkActive="active" class="button">All</a>
-    </div>
+    </div> -->
 
     <ul class="products">
-        <li class="product-item" *ngFor="let product of getFilteredProducts()">
+        <li class="product-item" *ngFor="let product of products | async">
             <app-product-details [product]="product" (buy)="addToCart(product)"></app-product-details>
         </li>
     </ul>
